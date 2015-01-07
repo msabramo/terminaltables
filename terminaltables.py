@@ -158,11 +158,11 @@ def _align_and_pad(input_, align, width, height, lpad, rpad):
 
     # Align.
     if align == 'center':
-        aligned = '\n'.join(l.center(width) for l in lines)
+        aligned = '\n'.join(l.decode('utf-8').center(width).encode('utf-8') for l in lines)
     elif align == 'right':
-        aligned = '\n'.join(l.rjust(width) for l in lines)
+        aligned = '\n'.join(l.decode('utf-8').rjust(width).encode('utf-8') for l in lines)
     else:
-        aligned = '\n'.join(l.ljust(width) for l in lines)
+        aligned = '\n'.join(l.decode('utf-8').ljust(width).encode('utf-8') for l in lines)
 
     # Pad.
     padded = '\n'.join((' ' * lpad) + l + (' ' * rpad) for l in aligned.splitlines() or [''])
@@ -298,7 +298,7 @@ class AsciiTable(object):
             for i in range(len(row)):
                 if not row[i]:
                     continue
-                widths[i] = max(widths[i], len(max(row[i].splitlines(), key=len)))
+                widths[i] = max(widths[i], len(max(row[i].decode('utf-8').splitlines(), key=len)))
 
         return widths
 

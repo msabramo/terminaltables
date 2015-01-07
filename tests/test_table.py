@@ -285,7 +285,7 @@ def test_unicode():
         ['Name', 'Color', 'Type'],
         ['Avocado', 'green', 'nut'],
         ['Cupuaçu', 'yellow', 'fruit'],
-        [u'\xc3\xa4\xc3\xb6\xc3\xbc\xc3\x9f', '', 'neither'],
+        ['äöüß', '', 'neither'],
     ]
     table = AsciiTable(table_data, 'Foods')
 
