@@ -284,12 +284,12 @@ def test_unicode():
     table_data = [
         ['Name', 'Color', 'Type'],
         ['Avocado', 'green', 'nut'],
-        ['Cupuaçu', 'yellow', 'fruit'],
-        ['äöüß', '', 'neither'],
+        [u'Cupuaçu', 'yellow', 'fruit'],
+        [u'äöüß', '', 'neither'],
     ]
     table = AsciiTable(table_data, 'Foods')
 
-    expected = dedent("""\
+    expected = dedent(u"""\
         +Foods----+--------+---------+
         | Name    | Color  | Type    |
         +---------+--------+---------+
